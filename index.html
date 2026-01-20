@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shubham Kadam — Data Analyst Portfolio</title>
+  <link rel="icon" style="border-radius:50%;" href="shubhamimage.webp" type="image/jpg">
+  <meta name="description" content="Data Analyst portfolio showcasing dashboards, analytics projects, and interactive visualizations."/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root{
+        --bg:#0f1217;
+        --card:#151a22;
+        --text:#e8edf5; 
+        --muted:#a9b4c7; 
+        --accent:#5cc8ff; 
+        --accent-2:#7cf29a;
+        --border:#1f2630; 
+        --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{
+        box-sizing:border-box;
+    }
+    html{
+        scroll-behavior:smooth;
+        width: 100%;
+    }
+    body{
+        margin:0; 
+        font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+        background:var(--bg); 
+        color:var(--text); 
+        line-height:1.6;
+    }
+    a{
+        color:var(--accent); 
+        text-decoration:none;
+    }
+    img{
+        max-width:100%; 
+        display:block;
+    }
+    .container{
+        width:100%; 
+        max-width:1100px; 
+        margin:0 auto; 
+        padding:0 2px;
+    }
+    header{
+        position:relative; 
+        top:0; 
+        z-index:50; 
+        backdrop-filter:saturate(1.2) blur(8px);
+        background:linear-gradient(180deg, rgba(15,18,23,.85), rgba(15,18,23,.65));
+        border-bottom:1px solid var(--border);
+    }
+    .nav{
+        display:flex; 
+        align-items:center; 
+        justify-content:space-between; 
+        padding:14px 0;
+    }
+    .brand{
+        display:flex; 
+        align-items:center; 
+        gap:12px;
+    }
+    .avatar{
+        width:36px; 
+        height:36px; 
+        border-radius:50%; 
+        background:linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow:var(--shadow);
+    }
+    .brand h1{
+        font-size:18px; 
+        margin:0;
+    }
+    .nav ul{
+        display:flex; 
+        gap:10px; 
+        list-style:none; 
+        margin:0; 
+        padding:0;
+    }
+    .nav a{
+      padding:8px 10px; 
+      border-radius:8px;
+      color: var(--text);
+    }
+    .nav a:hover{
+      background:var(--card);
+    }
+    .toggle{
+      border:1px solid var(--border); 
+      background:var(--card); 
+      color:var(--text);
+      padding:8px 10px; 
+      border-radius:8px; 
+      cursor:pointer;
+    }
+    /* Hero */
+    .hero{
+      padding:70px 0 40px; 
+      text-align:center;
+    }
+    .hero img:hover{
+      transform:scale(1.28);
+      transition: ease-in 1s;
+    }
+    .hero h2{
+      font-size:34px; 
+      margin:10px 0;
+    }
+    .hero p{
+      color:var(--muted); 
+      max-width:720px; 
+      margin:0 auto 18px;
+    }
+    .tags{
+      display:flex; 
+      flex-wrap:wrap; 
+      gap:10px; 
+      justify-content:center; 
+      margin-top:14px;
+    }
+    .tag{
+      border:1px solid var(--border); 
+      background:var(--card); 
+      width: 85%;
+      color:var(--muted);
+      padding:6px 10px; 
+      border-radius:999px; 
+      font-size:14px;
+    }
+    .tag:hover{
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#0b0f14;
+      transition: transform 0.3s;
+    }
+    .tag1{
+      border:1px solid var(--border); 
+      background:var(--card); 
+      color:var(--muted);
+      padding:6px 10px; 
+      border-radius:999px; 
+      font-size:14px;
+    }
+    .cta{
+      display:flex; 
+      gap:12px; 
+      justify-content:center; 
+      margin-top:18px; 
+      flex-wrap:wrap;
+    }
+    .btn{
+      padding:10px 14px; 
+      border-radius:10px; 
+      border:1px solid var(--border);
+      background:var(--card); 
+      color:var(--text); 
+      cursor:pointer;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b0f14; border:none
+    }
+    section{
+      padding:40px 0; 
+      border-top:1px solid var(--border);
+    }
+    h3{
+      margin:0 0 14px; 
+      font-size:22px;
+    }
+    .grid{
+      display:grid; 
+      gap:16px; 
+      grid-template-columns:repeat(12, 1fr);
+    }
+    .col-4{
+      grid-column:span 4;
+    }
+    .col-6{
+      grid-column:span 6;
+    }
+    .col-8{
+      grid-column:span 8;
+    }
+    .col-12{
+      grid-column:span 12;
+    }
+    @media (max-width:900px){
+      .col-4,.col-6,.col-8{
+        grid-column:span 12;
+      }
+      .nav{
+        flex-direction:column; 
+        align-items:flex-start; 
+        width: 100%;
+      }
+      .nav ul{
+        flex-wrap:wrap;
+        gap: 15px;
+        padding: 1rem;
+        width: 100%;
+      }
+      #skillRadar{
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+        max-height: 400px;
+      }
+      #skills ul{
+        width: 100%;
+        list-style: circle;
+      }
+      #skills h3{
+        text-align: left;
+        padding: 1rem;
+      }
+      #skills ul li{
+        margin: 0 1rem;
+        padding: 3rem 0;
+      }
+      .avatar{
+        width:28px; 
+        height:28px;
+        padding: 0 1rem; 
+      }
+    }
+    .card{
+      background:var(--card); 
+      border:1px solid var(--border); 
+      border-radius:14px; 
+      padding:16px; 
+      box-shadow:var(--shadow);
+    }
+    .muted{
+      color:var(--muted);
+    }
+    #skills .container.card{
+      display:flex; 
+      flex-direction:column; 
+      align-items:center; 
+      justify-content:center; 
+      gap:2rem;
+    }
+    #skills .container.card.fade{
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    #skills .container.card.fade > div {
+      flex: 1;              
+      min-width: 400px;        
+      display: flex;
+      flex-direction: column;
+      justify-content: center; 
+    }
+    #skills ul{
+      list-style:none; 
+      margin:0; 
+      width: 95%;
+      padding:0;
+    }
+    #skills ul li {
+      padding: 0.4rem 0;
+      font-size: 1rem;
+      border-bottom: 1px solid #eee;
+      border-bottom-style:solid ;
+    }
+
+    .project{
+      display:flex; 
+      gap:14px; 
+      align-items:flex-start;
+    }
+    .project .thumb{
+      width:120px; 
+      height:80px; 
+      border-radius:10px; 
+      /* background:var(--accent,--accent-2);  */
+      border:1px solid var(--border);
+      background-image:linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+    .project h4{
+      margin:0 0 6px;
+    }
+    .project .meta{
+      font-size:13px; 
+      color:var(--muted);
+    }
+    .chips{
+      display:flex; 
+      gap:8px; 
+      flex-wrap:wrap; 
+      margin-top:8px;
+    }
+    .chip{
+      font-size:12px; 
+      padding:4px 8px; 
+      border-radius:999px; 
+      border:1px solid var(--border); 
+      color:var(--muted);
+    }
+    form{
+      display:grid; 
+      gap:12px;
+    }
+    input, textarea{
+      width:100%; 
+      padding:10px 12px; 
+      border-radius:10px; 
+      border:1px solid var(--border);
+      background:var(--card); 
+      color:var(--text);
+    }
+    input::placeholder, textarea::placeholder{
+      color:#6b778a;
+    }
+    footer{
+      padding:24px 0; 
+      text-align:center; 
+      color:var(--muted);
+    }
+    .fade{
+      opacity:0; 
+      transform:translateY(8px); 
+      transition:opacity .5s ease, transform .5s ease;
+    }
+    .fade.show{
+      opacity:1; 
+      transform:none;
+    }
+    .light{
+      --bg:#f7f9fc; 
+      --card:#ffffff; 
+      --text:#0b0f14; 
+      --muted:#4b5565; 
+      --accent:#ff0088; 
+      --accent-2:#af8f97; 
+      --border:#e6eaf0;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <h1>Shubham Kadam</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><button class="toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <img src="shubhamimage.png" alt="Shubham Kadam" style="width:200px; height:200px; border-radius:50%; margin:0 auto 70px; box-shadow:0 4px 12px rgba(0,0,0,.3);" />
+    <p class="tag">Data Analyst • Python • PySpark • Java • R • SQL • PostgreSQL • Oracle • Power BI • Tableau</p>
+    <h2>Turning raw data into <span id="rotating"></span></h2>
+    <p>Blending analytics rigor with developer versatility—interactive dashboards, clean pipelines, Java‑powered applications, and expressive visual narratives that move stakeholders to action.</p>
+
+    <div class="tags">
+      <span class="tag1">Predictive modeling</span>
+      <span class="tag1">Interactive dashboards</span>
+      <span class="tag1">Data storytelling</span>
+      <span class="tag1">PostgreSQL</span>
+      <span class="tag1">Java Swing/JDBC</span>
+      <span class="tag1">Web design</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="#contact">Contact me</a>
+      <a class="btn" href="RESUME.pdf" download>Download resume</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container grid">
+      <div class="col-8 card fade">
+        <h2>About Me</h2>
+        <p class="muted">
+          I am a Data Analyst passionate about transforming raw data into meaningful insights. 
+          My expertise spans the full analytics lifecycle—data cleaning, modeling, visualization, and reporting—ensuring 
+          that complex datasets become clear and actionable. 
+          With developer skills as my differentiator, I design interactive experiences, build production-ready pipelines, 
+          develop Java applications, and integrate analytics seamlessly into applications and web platforms.
+        </p>
+        <ul>
+          <li><strong>Core Focus:</strong> Data analysis, visualization, and performance optimization</li>
+          <li><strong>Technical Toolkit:</strong> Python, SQL, R, Power BI, Tableau, PySpark, PostgreSQL</li>
+          <li><strong>Developer Edge:</strong> Java Swing/JDBC for secure applications; HTML, CSS, JavaScript for interactive presentation</li>
+        </ul>
+      </div>
+
+      <div class="col-4 card fade">
+        <h2>Professional Highlights</h2>
+        <ul>
+          <li><strong>Dashboards:</strong> Built KPI dashboards that reduced reporting cycles by 40%</li>
+          <li><strong>Pipelines:</strong> Optimized ETL workflows with PySpark for 10M+ rows</li>
+          <li><strong>Visualization:</strong> Delivered clear, well-structured visuals to simplify complex data</li>
+          <li><strong>Java Applications:</strong> Developed secure, user-friendly desktop tools with Swing and JDBC integrated with PostgreSQL</li>
+          <li><strong>Portfolio:</strong> Created and hosted interactive portfolio platforms showcasing projects and compilers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h3 class="container fade">Skills</h3>
+    <div class="container card fade">
+      <div>
+        <h3>Technical Skills</h3>
+        <ul>
+          <li>Python</li>
+          <li>PySpark</li>
+          <li>SQL</li>
+          <li>PostgreSQL</li>
+          <li>Oracle</li>
+          <li>Java</li>
+          <li>Pandas</li>
+          <li>NumPy</li>
+          <li>Matplotlib</li>
+          <li>Seaborn</li>
+          <li>R</li>
+          <li>React</li>
+          <li>Power BI</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Skills Radar</h3>
+        <canvas id="skillRadar" width="550" height="550"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h3>Projects</h3>
+      <div class="grid">
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>EV Population(Washington) Analysis</h4>
+                    <p class="meta">Python • Pyspark • Pandas • Matplotlib • Seaborn </p>
+                    <p>Analysis of electric vehicle adoption in Washington state using PySpark and Pandas. Visualized using Matplot and Seaborn</p>
+                    <div class="chips">
+                        <span class="chip">Data Cleaning</span>
+                        <span class="chip">Visualization</span>
+                        <span class="chip">Pyspark</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/Electric-Vehicle-WA" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>India Census Analysis</h4>
+                    <p class="meta">Python • Pandas • Numpy • Matplot • Seaborn • Power BI</p>
+                    <p>Analysis of India Census data using Python libraries, used some Python libraries for visualization and also with the beautiful Power Bi dashboard.</p>
+                    <div class="chips">
+                        <span class="chip">Data Cleaning</span>
+                        <span class="chip">Visualization</span>
+                        <span class="chip">Power BI</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/IND-Census-2011--analysis" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>Netflix Data Analysis</h4>
+                    <p class="meta">Python • Pandas • Numpy • Matplot • Seaborn • Power Bi</p>
+                    <p>Analysis of Netflix data using Python libraries, used some Python libraries for visualization and also with the beautiful Power Bi dashboard.</p>
+                    <div class="chips">
+                        <span class="chip">Data Cleaning</span>
+                        <span class="chip">Visualization</span>
+                        <span class="chip">Power Bi</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/Netflix-analysis" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>Covid 19 Analysis</h4>
+                    <p class="meta">Python • Pandas • Numpy • Matplot • Seaborn</p>
+                    <p>Analysis of Netflix data using Python libraries, used some Python libraries for visualization and also with the beautiful Power Bi dashboard.</p>
+                    <div class="chips">
+                        <span class="chip">Data Cleaning</span>
+                        <span class="chip">Visualization</span>
+                        <span class="chip">Power Bi</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/Covid-19-analysis" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>Spotify users Analysis</h4>
+                    <p class="meta">Python • Pandas • Numpy • Matplot • Seaborn</p>
+                    <p>Analysis of Spotify users data using Python libraries, used some Python libraries for visualization.</p>
+                    <div class="chips">
+                        <span class="chip">Data Cleaning</span>
+                        <span class="chip">Visualization</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/Spotify-analysis" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>Rock Paper Scissor game</h4>
+                    <p class="meta">Python • Tkinter • PIL</p>
+                    <p>Rock Paper Scissor game using Python Tkinter for GUI and PIL for image handling.</p>
+                    <div class="chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">Tkinter</span>
+                        <span class="chip">PIL</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/Rock-Paper-Scissor" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>Number Gussing Game</h4>
+                    <p class="meta">Python</p>
+                    <p>Number guessing game using Python.Where user can guess number between 1 to 100 in given chances.</p>
+                    <div class="chips">
+                        <span class="chip">Python</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/Number-Guessing-Game" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>Face Detection GUI</h4>
+                    <p class="meta">Python • OpenCV</p>
+                    <p>Face detection GUI using Python and OpenCV for real-time face detection.</p>
+                    <div class="chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">OpenCV</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/Face-detection" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>Stop Watch & Timer</h4>
+                    <p class="meta">Python • Tkinter</p>
+                    <p>Stopwatch and timer application using Python Tkinter for GUI.</p>
+                    <div class="chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">Tkinter</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/Stop-timer" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>QR code Generator</h4>
+                    <p class="meta">Python • Qrcode</p>
+                    <p>QR code generator using Python and Qrcode library that can user save on their device.</p>
+                    <div class="chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">Qrcode</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/QR-Generator" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>Phone Data Masking</h4>
+                    <p class="meta">Python • Phonenumbers</p>
+                    <p>Phone data masking using Python and Phonenumbers library to mask phone numbers.</p>
+                    <div class="chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">Phonenumbers</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/Phno_Detailtracker" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+            <div class="project">
+                <div class="thumb" aria-hidden="true"></div>
+                <div>
+                    <h4>Attendance Tracker</h4>
+                    <p class="meta">Java • Swing • JDBC</p>
+                    <p>Attendance tracker application using Java Swing and JDBC for database connectivity.</p>
+                    <div class="chips">
+                        <span class="chip">Java</span>
+                        <span class="chip">Swing</span>
+                        <span class="chip">JDBC</span>
+                    </div>
+                    <p><a href="https://github.com/Asura-824/RJAttendPortal" target="_blank">Live demo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card fade">
+          <div class="project">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <h4>Shubham's CodeQuotient</h4>
+              <p class="meta">HTML • CSS • JS</p>
+              <p>Designed and deployed a portfolio site with integrated Python, SQL, and PostgreSQL compilers, attracting 200+ monthly visitors and hosting datasets for interview prep.</p>
+              <div class="chips">
+                <span class="chip">Web Design</span>
+                <span class="chip">HTML/CSS/JS</span>
+                <span class="chip">Portfolio</span>
+              </div>
+              <p><a href="https://codequot.netlify.app/" target="_blank">Live demo</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 card fade">
+          <div class="project">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <h4>SWIS Foundation</h4>
+              <p class="meta">React • JavaScript • TypeScript</p>
+              <p>Modified and enhanced the SWIS Foundation website using React, JavaScript, and TypeScript to improve user engagement and information accessibility.</p>
+              <div class="chips">
+                <span class="chip">Web Development</span>
+                <span class="chip">React</span>
+                <span class="chip">TypeScript</span>
+            </div>
+            <p><a href="https://www.theswis.org/" target="_blank">Live demo</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="certifications">
+    <div class="container card fade">
+      <h3>Certifications</h3>
+      <ul class="muted">
+        <li>Data Analysis with Python - Internshala</li>
+        <li>Software Development BootCamp - Floydee Foundation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="container card fade">
+      <h3>Achievements</h3>
+      <ul class="muted">
+        <li>Cleared the Tata Crusible Quiz Prelim Round-1 (Online Mode)</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container card fade">
+      <h3>Contact</h3>
+      <p class="muted">Want to collaborate or review a dashboard? Send a note—I'll reply within 24 hours.</p>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" rows="5" placeholder="Message" required></textarea>
+        <button class="btn primary" type="submit">Send message</button>
+      </form>
+      <p id="formStatus" class="muted" role="status" style="margin-top:8px;"></p>
+      <p><i class="fab fa-github" aria-hidden="true"></i> GitHub Profile <a href="https://github.com/Asura-824" target="_blank">Asura-824</a></p>
+      <p><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn Profile <a href="https://www.linkedin.com/in/shubham-kadam-701450229/" target="_blank">Shubham Kadam</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Shubham Kadam · Built with HTML, CSS & JS
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); }
+      });
+    },{threshold:.15});
+    document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if(saved==='light'){ root.classList.add('light'); toggle.innerHTML='<i class="fas fa-sun"></i>'; }
+    toggle.addEventListener('click', ()=>{
+      root.classList.toggle('light');
+      const isLight = root.classList.contains('light');
+      toggle.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      // Simulate async submit
+      status.textContent = 'Sending...';
+      setTimeout(()=>{
+        status.textContent = `Thanks, ${data.name}! Your message was received.`;
+        form.reset();
+      }, 800);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+     const skills = [
+    "actionable insights",
+    "interactive dashboards",
+    "scalable pipelines",
+    "Java applications",
+    "predictive models",
+    "data stories"
+  ];
+  let index = 0;
+  const rotating = document.getElementById("rotating");
+  function rotateSkills() {
+    rotating.textContent = skills[index];
+    index = (index + 1) % skills.length;
+  }
+  setInterval(rotateSkills, 2000);
+  rotateSkills();
+  
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('mouseover', () => {
+      tag.style.transform = 'scale(1.1)';
+      tag.style.transition = 'transform 0.3s';
+    });
+    tag.addEventListener('mouseout', () => {
+      tag.style.transform = 'scale(1)';
+    });
+  });
+
+function getAccentColor() {
+  return getComputedStyle(document.documentElement)
+           .getPropertyValue('--accent-2')
+           .trim();
+}
+const ctx = document.getElementById("skillRadar");
+
+const skillChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ["Python","PySpark", "SQL", "PostgreSQL", "Oracle", "Java", "Pandas", "NumPy", "Matplotlib", "Seaborn", "R", "React", "Power BI"],
+    datasets: [{
+      label: "Skill Level",
+      data: [90, 72, 88, 95, 75, 80, 80, 95, 85, 40, 80, 60, 40],
+      backgroundColor: getAccentColor(),
+      borderColor: "#2196f3",
+      pointBackgroundColor: "#2196f3",
+    }]
+  },
+  options: {
+      responsive: false,   // disables auto-resize
+    maintainAspectRatio: false,
+      scales: {
+        r: {
+          angleLines: { 
+            color: "#ccc" 
+          },
+          grid: { 
+            color: "#eee"
+          },
+          pointLabels: { 
+            color:"#666", 
+            font: { 
+              size: 14,
+              weight:'bold'
+            }
+          },
+          ticks:{
+            display:false
+          },
+          suggestedMin: 0,
+          suggestedMax: 100
+        }
+      }
+    }
+
+});
+function updateChartColors() {
+  skillChart.data.datasets[0].backgroundColor = getAccentColor();
+  skillChart.update();
+}
+
+// Example: listen for theme toggle
+document.querySelector("#themeToggle").addEventListener("click", () => {
+  document.documentElement.toggleAttribute("data-theme", "dark");
+  updateChartColors();
+});
+  </script>
+</body>
+</html>
