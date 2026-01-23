@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shubham Kadam — Data Analyst Portfolio</title>
-  <link rel="icon" style="border-radius:50%;" href="shubhamimage.webp" type="image/jpg">
+  <link rel="icon" style="border-radius:50%;" href="shubhamimage.png" type="image/jpg">
   <meta name="description" content="Data Analyst portfolio showcasing dashboards, analytics projects, and interactive visualizations."/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -17,6 +17,7 @@
         --accent:#5cc8ff; 
         --accent-2:#d67cf2;
         --border:#1f2630; 
+        --header-bg:linear-gradient(180deg, rgba(15,18,23,.85), rgba(15,18,23,.65));
         --shadow:0 10px 30px rgba(0,0,0,.35);
     }
     *{
@@ -73,7 +74,7 @@
         flex-direction: row;
         height: 60px;
         backdrop-filter:saturate(1.2) blur(8px);
-        background:linear-gradient(180deg, rgba(15,18,23,.85), rgba(15,18,23,.65));
+        background:var(--header-bg);
         border-bottom:1px solid var(--border);
     }
     .nav{
@@ -129,11 +130,9 @@
       background:var(--card); 
       color:var(--text);
       padding:8px 10px; 
-      height: 35px;
       border-radius:8px; 
       cursor:pointer;
     }
-    /* Hero */
     .hero{
       padding:50px 0 40px; 
       text-align:center;
@@ -390,6 +389,7 @@
       --muted:#4b5565; 
       --accent:#ff0088; 
       --accent-2:#af8f97; 
+      --header-bg:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.65));
       --border:#e6eaf0;
       --shadow:0 10px 30px rgba(0,0,0,.08);
     }
@@ -463,7 +463,7 @@
   </header>
 
   <section class="hero container">
-    <img src="https://avatars.githubusercontent.com/u/201357751?s=400&u=a97cd351d841dfd0fca99ffe961fbf42d4531130&v=4" alt="Shubham Kadam" style="width:200px; height:200px; border-radius:50%; margin:0 auto 20px; box-shadow:0 4px 12px rgba(0,0,0,.3);" />
+    <img src="https://avatars.githubusercontent.com/u/201357751?s=400&u=a97cd351d841dfd0fca99ffe961fbf42d4531130&v=4" alt="Shubham Kadam" style="width:200px; height:200px; border-radius:50%; margin:0 auto 30px; box-shadow:0 4px 12px rgba(0,0,0,.3);" />
     <h1>Shubham Kadam</h1>
     <p class="tag">Data Analyst • Python • PySpark • Java • R • SQL • PostgreSQL • Oracle • Power BI • Tableau</p>
     <h2>Turning raw data into <span id="rotating"></span></h2>
