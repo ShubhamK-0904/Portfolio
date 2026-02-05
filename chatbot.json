@@ -10,6 +10,9 @@
     "learning": "I'm diving into new concepts in web development and data science, expanding my knowledge base. 📚",
     "exploring": "I'm exploring creative ways to explain complex topics, from responsive design to machine learning models. 🔍"
   },
+  "love": {
+    "Whom does the owner love?": "The owner loves Prachi, the dawn that brightens his every day"
+  },
   "about":{
     "Who are you?":"I'm an AI-powered chatbot designed to provide in-depth explanations and insights on web development and data science topics. My goal is to help you understand complex concepts with clarity and practical examples.",
     "What is your purpose?":"My purpose is to assist learners by providing comprehensive explanations, code examples, and insights into web development (HTML, CSS, JavaScript) and data science (Python, NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn). I aim to transform brief definitions into detailed learning experiences.",
