@@ -77,7 +77,7 @@
     }
     .container{
         width:100%; 
-        max-width:1100px; 
+        max-width:1300px; 
         margin:0 auto; 
         padding:0 2px;
     }
@@ -418,6 +418,7 @@
       flex-direction: column; 
       gap:12px;
       width: 100%;
+      padding: 2rem;
       height: max-content;
       margin: auto;
     }
@@ -443,10 +444,40 @@
       color:#6b778a;
     }
     footer{
-      padding:24px 0; 
       text-align:center; 
+      display: flex;
+      flex-direction: column;
       border-top: 1px solid var(--border);
       color:var(--muted);
+    }
+    .footer1{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer1 ul{
+      text-align: start;
+    }
+    .social-links{
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+    }
+    .social-links a{
+      color: var(--header-text);
+    }
+    .social-links .icon{
+      width: 40px;
+      height: 40px;
+      color: var(--header-text);
+      background-color: var(--card);
     }
     .fade{
       opacity:0; 
@@ -502,7 +533,7 @@
     }
     @media (max-width: 768px) {
       .container{
-        width: 95%;
+        width: 98%;
       }
       #contact {
         width: 95%;
@@ -510,6 +541,7 @@
       }
       form {
         width: 100%;
+        padding: 1rem;
       }
       #contact>div{
         width: 100%;
@@ -534,6 +566,22 @@
         flex-direction: column;
         margin: auto;
         height: max-content;
+      }
+      .footer1{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .footer1 ul{
+        text-align: center;
+      }
+      .social-links{
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
       }
     }
     /* Chat bubble */
@@ -726,11 +774,11 @@
           <h2 style="color: var(--accent);">Professional Highlights</h2>
           <div class="muted">
             <div class="muted1">
-              <div class="icon">
+              <div class="icon" style="width: 62px;">
                 <i class="fa-solid fa-chart-line"></i>
               </div>
               <div>
-                <p><span style="color: var(--header-text); font-weight: 600;">Dashboards</span><br>Designed KPI dashboards that cut reporting cycles by 40%</p>
+                <p><span style="color: var(--header-text); font-weight: 600;">Dashboards</span><br>Built KPI dashboards where clarity meets speed, shortening reporting cycles by 40%.</p>
               </div>
             </div>
             <div class="muted1">
@@ -760,21 +808,6 @@
           </div>
         </div>
 
-        <!-- Current Learnings -->
-        <div class="col-6 card fade">
-          <h2 style="color: var(--accent); display: flex; flex-direction: row; gap: 10px;">
-            <div class="icon">
-              <i class="fa-solid fa-book-open"></i>
-            </div>
-            Current Learnings</h2>
-          <ul class="muted" style="padding: 0.5rem;">
-            <li class="circle">Advanced data modeling & optimization</li>
-            <li class="circle">Java-powered backend architecture and services</li>
-            <li class="circle">Modern web development with React & TypeScript</li>
-          </ul>
-        </div>
-
-        <!-- Education -->
         <div class="col-6 card fade">
           <h2 style="color: var(--accent); display: flex; flex-direction: row; gap: 10px;">
             <div class="icon">
@@ -782,9 +815,23 @@
             </div>
             Education
           </h2>
-          <ul class="muted" style="padding: 0.5rem;">
-            <li class="circle">Bachelor of Science in Computer Science (Expected 2027)</li>
-            <li class="circle">Relevant coursework: Data Structures, DBMS, Statistics, Machine Learning, Web Development</li>
+          <ul style="padding: 0.5rem; list-style: none;">
+            <li style="color: var(--header-text); font-weight: 600;">Bachelor of Science in Computer Science</li>
+            <li class="muted">(Expected 2027)</li>
+            <li class="muted">Relevant coursework: Data Structures, DBMS, Statistics, Machine Learning, Web Development</li>
+          </ul>
+        </div>
+
+        <div class="col-6 card fade">
+          <h2 style="color: var(--accent); display: flex; flex-direction: row; gap: 10px;">
+            <div class="icon">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            Current Learnings</h2>
+          <ul class="muted" style="padding: 0.5rem; list-style: disc;">
+            <li class="circle">Advanced data modeling & optimization</li>
+            <li class="circle">Java-powered backend architecture and services</li>
+            <li class="circle">Modern web development with React & TypeScript</li>
           </ul>
         </div>
 
@@ -921,7 +968,7 @@
               <div class="project">
                   <div>
                       <h4 style="display: flex;align-items: center;justify-content: space-between;">EV Population(WA) Analysis</h4>
-                      <p class="muted">Analysis of electric vehicle adoption in Washington state using PySpark and Pandas. Visualized using Matplot and Seaborn</p>
+                      <p class="muted">Electric vehicle adoption trends in Washington State analyzed with PySpark and Pandas, and visualized through Matplotlib and Seaborn</p>
                       <div class="chips">
                           <span class="chip">Python</span>
                           <span class="chip">PySpark</span>
@@ -1174,8 +1221,22 @@
     <p style="font-size: 12px; text-align: center;">Smart insights, seamless conversations.</p>
   </div>
   <footer>
-    <div class="container">
-      © <span id="year"></span> Shubham Kadam · Built with ❤️ using HTML, CSS & JS
+    <div class="footer1">
+      <div>
+        <ul style="list-style: none; padding: 1rem;">
+         <li style="color: var(--header-text); font-weight: 600; font-size: 1.2rem;">Shubham Kadam</li> 
+         <li>Data Analyst · Java Developer · Web Developer</li>
+        </ul>
+      </div>
+      <div class="social-links">
+        <a href="https://github/Asura-824.com"><i class="fab fa-github icon" style="font-size: 1.5rem;"></i></a>
+        <a href="https://www.linkedin.com/in/shubham-kadam-b8856031a/"><i class="fab fa-linkedin icon" style="font-size: 1.5rem;"></i></a>
+        <a href="mailto:shubham85kadam@gmail.com"><i class="fa-solid fa-envelope icon" style="font-size: 1.5rem;"></i></a>
+      </div>
+    </div>
+    <div class="container" style="padding: 1rem; font-size: 15.5px;">
+      © <span id="year"></span> Shubham Kadam · Built with <span style="color: var(--accent);"><i class="fa-solid fa-heart"></i></span> using HTML, CSS & JS
+      <p style="font-style: italic;">In every line of code, a universe unfolds.</p>
     </div>
   </footer>
 
