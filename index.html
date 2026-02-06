@@ -11,18 +11,18 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
-  --bg: #0d1117; 
-  --card: #161b22; 
-  --text: #e6edf3; 
-  --header-text: #ffffff; 
-  --muted: #9aa5b8; 
-  --accent: #3b82f6; 
-  --accent-2: #5cc8ff; 
-  --accent-light: rgba(59, 130, 246, 0.25); 
-  --border: #2d333b; 
-  --header-bg: linear-gradient(180deg, rgba(13,17,23,.9), rgba(13,17,23,.7));
-  --shadow: 0 8px 24px rgba(0, 0, 0, 0.7); 
-}
+      --bg: #0d1117; 
+      --card: #161b22; 
+      --text: #e6edf3; 
+      --header-text: #ffffff; 
+      --muted: #9aa5b8; 
+      --accent: #3b82f6; 
+      --accent-2: #5cc8ff; 
+      --accent-light: rgba(59, 130, 246, 0.25); 
+      --border: #2d333b; 
+      --header-bg: linear-gradient(180deg, rgba(13,17,23,.9), rgba(13,17,23,.7));
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.7); 
+    }
     *{
         box-sizing:border-box;
         font-family:Arial, Helvetica, sans-serif;
@@ -65,6 +65,7 @@
         background:var(--bg); 
         color:var(--text); 
         line-height:1.6;
+        width: 100%;
     }
     a{
         color:var(--accent); 
@@ -363,22 +364,40 @@
       border-bottom: 1px solid #eee;
       border-bottom-style:solid ;
     }
-
+    #projects .col-4{
+      width: 100%;
+      height: fit-content;
+      background-color: var(--card);
+      border:1px solid var(--border); 
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      overflow: hidden;
+    }
+   .image{
+      background-size: cover;
+      background-position: center; 
+      border-radius: 14px;
+      width: 100%;
+      height: fit-content; 
+      display: block;
+    }
     .project{
       display:flex; 
-      gap:14px; 
+      gap:14px;  
+      padding:2rem; 
+      flex-direction: column;
       align-items:flex-start;
     }
     .project h4{
       margin:0 0 6px;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
     }
     .meta{
       font-size:13px; 
       color:var(--muted);
     }
     .project p{
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
     .chips{
       display:flex; 
@@ -445,7 +464,7 @@
   --header-text: #111111; 
   --muted: #5a6475; 
   --accent: #ff0088; 
-  --accent-2: #af8f97; 
+  --accent-2: #f4a6a6; 
   --accent-light: rgba(255, 20, 145, 0.18); 
   --header-bg: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.7));
   --border: #dce2eb; 
@@ -482,6 +501,9 @@
       padding:16px; 
     }
     @media (max-width: 768px) {
+      .container{
+        width: 95%;
+      }
       #contact {
         width: 95%;
         overflow: hidden;
@@ -891,83 +913,99 @@
     <div>
       <br><p id="p1"><span style="color: var(--accent);">PORTFOLIO</span><br><span class="highlight">Featured Projects</span><br>A selection of projects showcasing my skills in data analysis, visualization, and software development.</p>
       <div class="container">
-      <div class="grid">
-        <div class="col-4 card fade">
-            <div class="project">
-                <div>
-                    <h4 style="display: flex;align-items: center;justify-content: space-between;">EV Population(WA) Analysis<i class="fa-regular fa-folder"></i></h4>
-                    <p>Analysis of electric vehicle adoption in Washington state using PySpark and Pandas. Visualized using Matplot and Seaborn</p>
-                    <div class="chips">
-                        <span class="chip">Python</span>
-                        <span class="chip">PySpark</span>
-                        <span class="chip">Pandas</span>
-                        <span class="chip">Matplotlib</span>
-                        <span class="chip">+1</span>
-                    </div>
-                    <p><a href="https://github.com/Asura-824/Electric-Vehicle-WA" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 card fade">
-            <div class="project">
-                <div>
-                    <h4 style="display: flex;align-items: center;justify-content: space-between;">India Census Analysis<i class="fa-regular fa-folder"></i></h4>
-                    <p>Analysis of India Census data using Python libraries, used some Python libraries for visualization and created beautiful dashboard.</p>
-                    <div class="chips">
-                        <span class="chip">Python</span>
-                        <span class="chip">Pandas</span>
-                        <span class="chip">NumPy</span>
-                        <span class="chip">Matplotlib</span>
-                        <span class="chip">+2</span>
-                    </div>
-                    <p><a href="https://github.com/Asura-824/IND-Census-2011--analysis" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 card fade">
-            <div class="project">
-                <div>
-                    <h4 style="display: flex;align-items: center;justify-content: space-between;">Attendance Tracker<i class="fa-regular fa-folder"></i></h4>
-                    <p>An attendance tracking application built with Java Swing for the user interface and JDBC for seamless database connectivity.</p>
-                    <div class="chips">
-                        <span class="chip">Java</span>
-                        <span class="chip">Swing</span>
-                        <span class="chip">JDBC</span>
-                    </div>
-                    <p><a href="https://github.com/Asura-824/RJAttendPortal" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 card fade">
-          <div class="project">
-            <div>
-              <h4 style="display: flex;align-items: center;justify-content: space-between;">Shubham's CodeQuotient<i class="fa-regular fa-folder"></i></h4>
-              <p>Designed and deployed a portfolio site with integrated Python, SQL, and PostgreSQL compilers, attracting 200+ monthly visitors and hosting datasets for interview prep.</p>
-              <div class="chips">
-                <span class="chip">HTML</span>
-                <span class="chip">CSS</span>
-                <span class="chip">JavaScript</span>
+        <div class="grid">
+          <div class="col-4">
+              <div class="image">
+                <img src="carimage.png" alt="carimage">
               </div>
-              <p><a href="https://codequot.netlify.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
+              <div class="project">
+                  <div>
+                      <h4 style="display: flex;align-items: center;justify-content: space-between;">EV Population(WA) Analysis</h4>
+                      <p class="muted">Analysis of electric vehicle adoption in Washington state using PySpark and Pandas. Visualized using Matplot and Seaborn</p>
+                      <div class="chips">
+                          <span class="chip">Python</span>
+                          <span class="chip">PySpark</span>
+                          <span class="chip">Pandas</span>
+                          <span class="chip">Matplotlib</span>
+                          <span class="chip">+1</span>
+                      </div>
+                      <p><a style="background: var(--accent); color: black; border-radius: 10px;" class="btn" href="https://github.com/Asura-824/Electric-Vehicle-WA" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4">
+            <div class="image">
+                <img src="indiacensus.png" alt="carimage">
+              </div>
+              <div class="project">
+                  <div>
+                      <h4 style="display: flex;align-items: center;justify-content: space-between;">India Census Analysis</h4>
+                      <p class="muted">Analysis of India Census data using Python libraries, used some Python libraries for visualization and created beautiful dashboard.</p>
+                      <div class="chips">
+                          <span class="chip">Python</span>
+                          <span class="chip">Pandas</span>
+                          <span class="chip">NumPy</span>
+                          <span class="chip">Matplotlib</span>
+                          <span class="chip">+2</span>
+                      </div>
+                      <p><a style="background: var(--accent); color: black; border-radius: 10px;" class="btn" href="https://github.com/Asura-824/IND-Census-2011--analysis" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4">
+            <div class="image">
+                <img src="attracker.png" alt="carimage">
+              </div>
+              <div class="project">
+                  <div>
+                      <h4 style="display: flex;align-items: center;justify-content: space-between;">Attendance Tracker</h4>
+                      <p class="muted">An attendance tracking application built with Java Swing for the user interface and JDBC for seamless database connectivity.</p>
+                      <div class="chips">
+                          <span class="chip">Java</span>
+                          <span class="chip">Swing</span>
+                          <span class="chip">JDBC</span>
+                      </div>
+                      <p><a style="background: var(--accent); color: black; border-radius: 10px;" class="btn" href="https://github.com/Asura-824/RJAttendPortal" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4">
+            <div class="image">
+                <img src="shubhamcodequot.png" alt="carimage">
+              </div>
+            <div class="project">
+              <div>
+                <h4 style="display: flex;align-items: center;justify-content: space-between;">Shubham's CodeQuotient</h4>
+                <p class="muted">Designed and deployed a portfolio site with integrated Python, SQL, and PostgreSQL compilers, attracting 200+ monthly visitors and hosting datasets for interview prep.</p>
+                <div class="chips">
+                  <span class="chip">HTML</span>
+                  <span class="chip">CSS</span>
+                  <span class="chip">JavaScript</span>
+                </div>
+                <p><a style="background: var(--accent); color: black; border-radius: 10px;" class="btn" href="https://codequot.netlify.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-4 card fade">
-          <div class="project">
-            <div>
-              <h4 style="display: flex;align-items: center;justify-content: space-between;">SWIS Foundation<i class="fa-regular fa-folder"></i></h4>
-              <p>Modified and enhanced the SWIS Foundation website using React, JavaScript, and TypeScript to improve user engagement and information accessibility.</p>
-              <div class="chips">
-                <span class="chip">React</span>
-                <span class="chip">JavaScript</span>
-                <span class="chip">TypeScript</span>
+          <div class="col-4">
+            <div class="image">
+                <img src="swisngo.png" alt="carimage">
               </div>
-              <p><a href="https://www.theswis.org/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
+            <div class="project">
+              <div>
+                <h4 style="display: flex;align-items: center;justify-content: space-between;">SWIS Foundation</h4>
+                <p class="muted">Modified and enhanced the SWIS Foundation website using React, JavaScript, and TypeScript to improve user engagement and information accessibility.</p>
+                <div class="chips">
+                  <span class="chip">React</span>
+                  <span class="chip">JavaScript</span>
+                  <span class="chip">TypeScript</span>
+                </div>
+                <p><a style="background: var(--accent); color: black; border-radius: 10px;" class="btn" href="https://www.theswis.org/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 style="text-align: center; margin-top: 4rem;">Other Projects</h2>
+      <h2 style="text-align: center;padding: 2rem;">Other Projects <i class="fa-regular fa-folder"></i></h2>
       <div class="container">
         <div class="grid">
           <a href="https://github.com/Asura-824/Netflix-analysis" class="col-4 card fade" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 1rem; cursor:pointer; color: var(--header-text);">
@@ -1054,7 +1092,6 @@
         </div>
       </div>
     </div>
-    </div>
   </section>
   <section id="certifications">
     <div class="container card fade">
@@ -1094,6 +1131,7 @@
         </div>  
         <div class="condetail">
           <div class="col-8 card fade" style="display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;">
+            <h3>Connect with me</h3>
             <a href="https://github.com/Asura-824" class="btn" style="display: flex; flex-direction: row; border-radius: 10px; justify-content: flex-start; gap: 1rem; cursor:pointer; color: var(--header-text);">
               <div class="icon" style="text-align: start;">
                 <i class="fab fa-github" style="font-size: 1.5rem;"></i>
