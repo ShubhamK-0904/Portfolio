@@ -22,7 +22,7 @@
       --accent-light2:#5cc9ff69; 
       --border: #2d333b; 
       --header-bg: linear-gradient(180deg, rgba(13,17,23,.9), rgba(13,17,23,.7));
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.7); 
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.151); 
     }
     *{
         box-sizing:border-box;
@@ -501,7 +501,7 @@
   --accent-light2:#f4a6a683;
   --header-bg: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.7));
   --border: #dce2eb; 
-  --shadow: 0 6px 20px rgba(0,0,0,.08);
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.151);
 }
     #contact {
       display: flex;
@@ -616,7 +616,7 @@
       position: fixed;
       bottom: 80px;
       right: 20px;
-      border: 1px solid var(--accent);
+      border: 2px solid var(--accent);
       width: 300px;
       background: var(--card);
       box-shadow: var(--shadow);
@@ -748,10 +748,10 @@
       <span class="tag1">Web design</span>
     </div>
     <div class="cta">
-      <a class="btn primary" href="#projects">View projects <i class="fa-solid fa-arrow-down"></i></a>
+      <a class="btn primary" href="#projects">View projects<i class="fa-solid fa-arrow-down"></i></a>
       <a class="btn" href="#contact">Contact me</a>
-      <a class="btn" href="https://github.com/Asura-824"><i class="fa-brands fa-github" style="font-size: 20px;"></i> GitHub</a>
-      <a class="btn" href="documents/RESUME.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+      <a class="btn" href="https://github.com/Asura-824"><i class="fa-brands fa-github" style="font-size: 20px;"></i>GitHub</a>
+      <a class="btn" href="documents/RESUME.pdf" download><i class="fa-solid fa-file-arrow-down"></i>Download Resume</a>
     </div>
   </section>
 
@@ -1003,6 +1003,23 @@
           </div>
           <div class="col-4">
             <div class="image">
+                <img src="images/neurasg.png" alt="carimage">
+              </div>
+            <div class="project">
+              <div>
+                <h4 style="display: flex;align-items: center;justify-content: space-between;">NeuraSG Chatbot</h4>
+                <p class="muted">Built and refined NeuraSG, a fully offline chatbot using HTML, CSS, and JavaScript, delivering responsive, accessible, and engaging interactions without API dependencies.</p>
+                <div class="chips">
+                  <span class="chip">HTML</span>
+                  <span class="chip">CSS</span>
+                  <span class="chip">JavaScript</span>
+                </div>
+                <p><a style="background: var(--accent); color: black; border-radius: 10px;" class="btn" id="view-project-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="image">
                 <img src="images/attracker.png" alt="carimage">
               </div>
               <div class="project">
@@ -1236,9 +1253,13 @@
         <a href="mailto:shubham85kadam@gmail.com"><i class="fa-solid fa-envelope icon" style="font-size: 1.5rem;"></i></a>
       </div>
     </div>
-    <div class="container" style="padding: 1rem; font-size: 15.5px;">
-      © <span id="year"></span> Shubham Kadam · Built with <span style="color: var(--accent);"><i class="fa-solid fa-heart"></i></span> using HTML, CSS & JS
-      <p style="font-style: italic;">In every line of code, a universe unfolds.</p>
+    <div class="container" style="padding: 1rem; font-size: 16px;">
+      © <span id="year"></span> Shubham Kadam <br> Built with <span style="color: var(--accent);"><i class="fa-solid fa-heart"></i></span> using HTML, CSS & JS
+        <p style="font-style: italic;">
+          <span style="font-size: 24px; color: var(--accent);">&ldquo;</span>
+            Every commit is a quiet victory, not through conflict, but through forgiveness—merging errors into wisdom.
+          <span style="font-size: 24px; color: var(--accent);">&rdquo;</span>
+        </p>
     </div>
   </footer>
 
@@ -1309,13 +1330,16 @@ const skillChart = new Chart(ctx, {
   type: 'radar',
   data: {
     labels: [
-      "Python","PySpark","Java","SQL","PostgreSQL","Oracle",
-      "Pandas","NumPy","Matplotlib","Seaborn","R","React",
-      "React Native","Power BI"
+      "Python", "Java", "R", "SQL",
+      "PostGreSQL", "Oracle",
+      "PySpark", "Pandas", "NumPy",
+      "Matplot", "Seaborn",
+      "React", "React Native",
+      "Power BI"
     ],
     datasets: [{
       label: "Skill Level",
-      data: [90, 72, 80, 88, 95, 75, 80, 95, 85, 80, 80, 60, 60, 50],
+      data: [90, 80, 80, 88, 95, 85, 80, 90, 95, 85, 80, 60, 60, 50],
       backgroundColor: getComputedStyle(document.documentElement)
                           .getPropertyValue('--accent-light')
                           .trim(), 
@@ -1341,7 +1365,7 @@ const skillChart = new Chart(ctx, {
         },
         color: getComputedStyle(document.documentElement)
                  .getPropertyValue('--header-text')
-                 .trim(), // ✅ initial title color
+                 .trim(), 
         padding: {
           top: 10,
           bottom: 30
@@ -1494,6 +1518,30 @@ document.addEventListener("click", (event) => {
   }
 });
 
+const btn = document.querySelector('a#view-project-btn');
+const chatbot1 = document.querySelector('#chatbot');
+const bubble1 = document.getElementById("chatbot-bubble");
+
+if (btn && chatbot1) {
+    btn.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation(); 
+        
+        chatbot.style.display = 'block';
+        const chatbotSection = document.getElementById("chat-window");
+        if (chatbotSection) {
+            chatbotSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+    console.log('Modified btn.onclick to show chatbot');
+}
+
+const data = {
+    btnFound: !!btn,
+    chatbotFound: !!chatbot1,
+    bubbleFound: !!bubble1,
+    chatbotCurrentDisplay: chatbot1 ? chatbot1.style.display : 'N/A'
+};
 </script>
 </body>
 </html>
