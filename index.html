@@ -28,7 +28,7 @@
         box-sizing:border-box;
         font-family:Arial, Helvetica, sans-serif;
     }
-    .btn i ,.btn.primary{
+    .btn i ,.btn .primary{
       font-size: 1rem;
     }
     .responsediv{
@@ -175,6 +175,7 @@
     .hero{
       padding:50px 0 40px; 
       text-align:center;
+      width: 100%;
     }
     .hero h1{
       font-size: clamp(2rem, 6vw, 5rem);
@@ -203,8 +204,8 @@
     }
     .tag{
       border:1px solid var(--border); 
-      background:var(--card); 
-      width: 85%;
+      background:var(--card);
+      width: 90%;
       color:var(--muted);
       padding:6px 10px; 
       border-radius:999px; 
@@ -275,6 +276,7 @@
     }
     .col-12{
       grid-column:span 12;
+      height: 600px;
     }
     @media (max-width:900px){
       .col-4,.col-6,.col-8{
@@ -382,7 +384,8 @@
       overflow: hidden;
     }
     #projects .col-4:hover{
-      border-color: var(--accent);
+      transition: transform 0.3s;
+      transform: scale(1.02);
     }
     a:hover h4, .grid a:hover #icon{
       border-color: var(--accent);
@@ -504,19 +507,19 @@
       transform:none;
     }
     .light {
-  --bg: #f5f7fa; 
-  --card: #ffffff; 
-  --text: #0a0e14; 
-  --header-text: #111111; 
-  --muted: #5a6475; 
-  --accent: #ff0088; 
-  --accent-2: #f4a6a6; 
-  --accent-light: rgba(255, 20, 145, 0.18); 
-  --accent-light2:#f4a6a683;
-  --header-bg: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.7));
-  --border: #dce2eb; 
-  --shadow: 0 6px 20px rgba(0, 0, 0, 0.151);
-}
+      --bg: #f5f7fa; 
+      --card: #ffffff; 
+      --text: #0a0e14; 
+      --header-text: #111111; 
+      --muted: #5a6475; 
+      --accent: #ff0088; 
+      --accent-2: #f4a6a6; 
+      --accent-light: rgba(255, 20, 145, 0.18); 
+      --accent-light2:#f4a6a683;
+      --header-bg: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.7));
+      --border: #dce2eb; 
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.151);
+    }
     #contact {
       display: flex;
       flex-direction: column;       
@@ -550,11 +553,16 @@
     }
     @media (max-width: 768px) {
       .container{
-        width: 98%;
+        width: 95%;
       }
       #contact {
         width: 95%;
         overflow: hidden;
+      }
+      .col-12{
+        padding: 1rem;
+        margin: auto;
+        max-height: 450px;
       }
       form {
         width: 100%;
@@ -631,8 +639,9 @@
       position: fixed;
       bottom: 80px;
       right: 20px;
-      border: 2px solid var(--accent);
+      border: 3px solid var(--accent);
       width: 300px;
+      height: 400px;
       background: var(--card);
       box-shadow: var(--shadow);
       border-radius: 10px;
@@ -645,7 +654,7 @@
     }
 
     #messages {
-      height: 250px;
+      height: 300px;
       overflow-y: auto;
       scrollbar-width: none;
       margin-bottom: 10px;
@@ -661,7 +670,6 @@
       background: var(--accent);
       color: rgb(0, 0, 0);
       padding: 5px 10px;
-      width: 50%;
       border-radius: 5px;
       display: inline-block;
     }
@@ -747,7 +755,7 @@
     </div>
   </header>
 
-  <section class="hero container">
+  <section class="hero">
     <img src="https://avatars.githubusercontent.com/u/201357751?s=400&u=a97cd351d841dfd0fca99ffe961fbf42d4531130&v=4" alt="Shubham Kadam" style="width:170px; height:170px; border-radius:50%; margin:auto; box-shadow:0 4px 12px rgba(0,0,0,.3);" />
     <h1>Shubham Kadam</h1>
     <p class="tag">
@@ -765,10 +773,13 @@
       <span class="tag1">Web design</span>
     </div>
     <div class="cta">
-      <a class="btn primary" href="#projects">View projects<i class="fa-solid fa-arrow-down"></i></a>
-      <a class="btn" href="#contact">Contact me</a>
-      <a class="btn" href="https://github.com/Asura-824"><i class="fa-brands fa-github" style="font-size: 20px;"></i>GitHub</a>
-      <a class="btn" href="documents/RESUME.pdf" download><i class="fa-solid fa-file-arrow-down"></i>Download Resume</a>
+      <a class="btn primary" href="#projects"><i class="fa-solid fa-diagram-project"></i>View Projects</a>
+      <a class="btn" href="#contact"><i class="fa-solid fa-address-card"></i>Contact me</a>
+      <a class="btn" href="https://github.com/Asura-824"><i class="fa-brands fa-github" style="font-size: 20px;"></i>GitHub Profile</a>
+      <a class="btn" href="documents/RESUME.pdf" target="_blank">
+  <i class="fa-solid fa-file-lines"></i>Open Resume
+</a>
+
     </div>
   </section>
 

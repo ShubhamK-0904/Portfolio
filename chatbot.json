@@ -22,8 +22,8 @@
     "Who created you?": "I was created by Shubham Kadam to make coding concepts accessible."
   },
   "help": {
-    "help": "I provide comprehensive explanations for web development (HTML, CSS, JavaScript) and Python data science (NumPy, Pandas, Matplotlib, Seaborn, PySpark, SQL, Java, Python). Ask me anything like 'topic_name subtopic_name' for detailed insights and code examples.",
-    "what can you do": "I transform simple questions into detailed learning resources with practical code examples, real-world use cases, and deep conceptual understanding across web and data technologies"
+    "overview": "I deliver in‑depth explanations across web development (HTML, CSS, JavaScript) and data science with Python (NumPy, Pandas, Matplotlib, Seaborn, PySpark), SQL, and Java. Use the format 'topic_name subtopic_name' to get detailed insights and code examples.",
+    "capabilities": "I turn simple questions into rich learning resources—complete with practical code snippets, real‑world applications, and clear conceptual breakdowns—covering both web technologies and data analytics."
   },
   "html": {
     "html": "HyperText Markup Language (HTML) is the essential building block of the web. It is used to structure content using elements enclosed in tags. HTML tells the browser what each piece of content represents: is it a heading, a paragraph, a link, or an image? It acts as the semantic backbone of any webpage.",
