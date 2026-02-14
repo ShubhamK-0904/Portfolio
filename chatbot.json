@@ -668,9 +668,9 @@
     "pyspark column types": "Supported types: StringType, IntegerType, DoubleType, BooleanType, DateType, TimestampType, ArrayType, MapType, StructType."
   },
   "pandas": {
-    "pandas": "Pandas is a powerful Python library for **data manipulation and analysis**. It provides data structures like **DataFrames** and **Series** that make working with structured data intuitive and efficient. Pandas is essential for data cleaning, transformation, and preparation in data science workflows.",
-    "pandas dataframe": "A **DataFrame** is a two-dimensional, labeled data structure with rows and columns, similar to a spreadsheet or SQL table. It's the core data structure in Pandas.",
-    "pandas series": "A **Series** is a one-dimensional labeled array that can hold any data type. It's like a single column in a DataFrame.<div class='responsediv'><pre>import pandas as pd\ns = pd.Series([1, 2, 3], index=['a', 'b', 'c'])\nprint(s['a'])</pre></div>",
+    "pandas": "Pandas is a powerful Python library for <strong>data manipulation and analysis</strong>. It provides data structures like <strong>DataFrames</strong> and <strong>Series</strong> that make working with structured data intuitive and efficient. Pandas is essential for data cleaning, transformation, and preparation in data science workflows.",
+    "pandas dataframe": "A <strong>DataFrame</strong> is a two-dimensional, labeled data structure with rows and columns, similar to a spreadsheet or SQL table. It's the core data structure in Pandas.",
+    "pandas series": "A <strong>Series</strong> is a one-dimensional labeled array that can hold any data type. It's like a single column in a DataFrame.<div class='responsediv'><pre>import pandas as pd\ns = pd.Series([1, 2, 3], index=['a', 'b', 'c'])\nprint(s['a'])</pre></div>",
     "pandas read csv": "The `read_csv()` function loads data from CSV files into a DataFrame.<div class='responsediv'><pre>import pandas as pd\ndf = pd.read_csv('data.csv')\nprint(df.head())</pre></div>",
     "pandas read excel": "The `read_excel()` function loads data from Excel files into a DataFrame.",
     "pandas read json": "The `read_json()` function loads JSON data into a DataFrame.",
@@ -760,7 +760,7 @@
     "pandas timedelta": "Timedelta represents time durations for date arithmetic and analysis."
   },
   "numpy": {
-    "numpy": "NumPy is a fundamental Python library for numerical computing that provides support for **large, multi-dimensional arrays and matrices**. It includes a collection of mathematical functions to operate on these arrays efficiently. NumPy is essential for data science, scientific computing, and machine learning workflows.",
+    "numpy": "NumPy is a fundamental Python library for numerical computing that provides support for <strong>large, multi-dimensional arrays and matrices</strong>. It includes a collection of mathematical functions to operate on these arrays efficiently. NumPy is essential for data science, scientific computing, and machine learning workflows.",
     "numpy arrays": "NumPy arrays are the core data structure—multi-dimensional, homogeneous collections of elements. They are more efficient than Python lists for numerical operations.<div class='responsediv'><pre>import numpy as np\narr = np.array([1, 2, 3, 4, 5])\nprint(arr)</pre></div>",
     "numpy array creation": "Create arrays using `np.array()`, `np.zeros()`, `np.ones()`, `np.arange()`, `np.linspace()`, or `np.random.rand()`.<div class='responsediv'><pre>arr1 = np.array([1, 2, 3])\narr2 = np.zeros((3, 3))\narr3 = np.ones((2, 4))\narr4 = np.arange(0, 10, 2)</pre></div>",
     "numpy zeros": "The `zeros()` function creates an array filled with zeros.",
