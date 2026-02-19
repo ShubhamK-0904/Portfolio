@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shubham Kadam — Data Analyst Portfolio</title>
+  <title>Shubham Kadam — Data Analyst & Full-Stack Developer Portfolio</title>
   <link rel="icon" style="border-radius:50%;" href="images/shubhamimage.png" type="image/jpg">
   <meta name="description" content="Shubham Kadam – Data Analyst & Full-Stack Developer skilled in Python, SQL, R, Power BI, Tableau, Java, and Web Development."/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -33,22 +33,71 @@
     }
     .responsediv {
       color: var(--header-text);
-      background-color: var(--card);          
-      border: 1px solid var(--border);
+      margin-top: 3%;
+      display: flex;
+      flex-direction: column;
       border-radius: 10px;
-      padding: 1rem;
       font-size: 0.9rem;
-      overflow-x: auto;                   
-      scrollbar-width: none;              
-      -ms-overflow-style: none;           
-      margin: 10px 1rem 0 0;
       font-family: "Courier New", Courier, monospace;
       width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
-
     .responsediv::-webkit-scrollbar {
       display: none;
     }
+    .responsediv pre {
+      background-color: var(--bg);
+      color: var(--header-text);
+      padding: 10px;
+      width: 100%;
+      margin: 0;
+      border-radius: 0 0 6px 6px;
+      overflow-x: auto;
+    }
+    /* Header bar */
+    .response-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px 6px 0 0;
+    }
+
+    /* Title text */
+    .response-header p {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    /* Copy button */
+    .copy-btn {
+      background: none;
+      border: none;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      color: inherit;
+      font-size: 14px;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    }
+
+    .copy-btn:hover {
+      background-color: #106ebe;
+    }
+
+    .copy-btn:active {
+      background-color: #005a9e;
+      transform: scale(0.97);
+    }
+
+    .copy-btn i {
+      margin-right: 4px;
+    }
+
 
     section{
       width: 95%;
@@ -680,10 +729,10 @@
     }
 
     #messages .bot .text {
-      background: var(--accent-2);
+      background: none;
       padding: 5px 10px;
       width: 100%;
-      color: black;
+      color: var(--header-text);
       border-radius: 5px;
       display: inline-block;
     }
@@ -767,8 +816,9 @@
   <strong>Data Analyst & Developer</strong> — Skilled in Python, SQL, R, Power BI, Tableau, Java, and Web Technologies
 </p>
     <h2>Turning raw data into <span id="rotating"></span></h2>
-    <p>Fusing analytical rigor with developer versatility—building interactive dashboards, seamless data pipelines, Java‑powered solutions, and vivid visual narratives that drive stakeholders to decisive action.</p>
-
+    <p>
+      Blending analytics and development expertise to build dashboards, streamline pipelines, and craft Java‑powered solutions that turn data into decisive stories.
+    </p>
     <div class="tags">
       <span class="tag1">Predictive modeling</span>
       <span class="tag1">Interactive dashboards</span>
@@ -1252,7 +1302,7 @@
           <h4>Welcomes to NeuraSG</h4>
         </div>
       </div>
-      <input type="text" id="user-input" placeholder="Start conversation..." />
+      <input type="text" id="user-input" placeholder="Ask anything..." />
       <button id="send-btn">Send</button>
     </div>
     <p style="font-size: 12px; text-align: center;">Smart insights, seamless conversations.</p>
@@ -1482,14 +1532,38 @@ function addMessage(sender, text) {
   bubble.classList.add("text");
 
   if (sender === "bot") {
-    bubble.innerHTML = text; // render HTML
+    bubble.innerHTML = text;
+    // After inserting bot content, attach copy functionality
+    setTimeout(() => attachCopyListeners(bubble), 0);
   } else {
-    bubble.textContent = text; // safe for user input
+    bubble.textContent = text;
   }
 
   msg.appendChild(bubble);
   chatBox.appendChild(msg);
   chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function attachCopyListeners(container) {
+  container.querySelectorAll(".responsediv").forEach(block => {
+    const copyBtn = block.querySelector("#copy-btn-variables");
+    const preTag = block.querySelector("pre");
+
+    if (copyBtn && preTag) {
+      copyBtn.addEventListener("click", function () {
+        const textToCopy = preTag.textContent;
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          copyBtn.innerHTML = "<i class='fa fa-check'></i> Copied!";
+          setTimeout(() => {
+            copyBtn.innerHTML = "<i class='fa fa-copy'></i> Copy";
+          }, 2000);
+        }).catch(err => {
+          console.error("Copy failed:", err);
+        });
+      });
+    }
+  });
 }
 
 function normalize(str) {
@@ -1499,17 +1573,40 @@ function normalize(str) {
 function respondToUser(input) {
   input = normalize(input);
 
-  // Loop through categories and check for exact key match
+  let topic = null;
+  const patterns = [
+    { prefix: "tell me about ", strip: "tell me about " },
+    { prefix: "what is ", strip: "what is " },
+    { prefix: "explain ", strip: "explain " },
+    { prefix: "define ", strip: "define " },
+    { prefix: "describe ", strip: "describe " },
+    { prefix: "info on ", strip: "info on " },
+    { prefix: "details about ", strip: "details about " },
+    { prefix: "topic: ", strip: "topic: " }
+  ];
+
+  for (const p of patterns) {
+    if (input.startsWith(p.prefix)) {
+      topic = input.replace(p.strip, "").trim();
+      break;
+    }
+  }
+
+  if (topic) {
+    for (const category in botData) {
+      if (botData[category][topic]) {
+        setTimeout(() => addMessage("bot", botData[category][topic]), 600);
+        return;
+      }
+    }
+  }
+
   for (const category in botData) {
     if (botData[category][input]) {
       setTimeout(() => addMessage("bot", botData[category][input]), 600);
       return;
     }
   }
-
-  // Fallback if no exact match
-  let reply = botData.default || "Sorry, I didn’t understand that.";
-  setTimeout(() => addMessage("bot", reply), 600);
 }
 
 document.addEventListener("click", (event) => {
@@ -1544,6 +1641,7 @@ const data = {
   bubbleFound: !!bubble1,
   chatbotCurrentDisplay: chatbot1 ? chatbot1.style.display : 'N/A'
 };
+
 </script>
 </body>
 </html>
