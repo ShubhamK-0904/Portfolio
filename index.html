@@ -109,18 +109,18 @@
 
 
     section{
-      width: 95%;
+      width: 100%;
       display: block;
       margin: auto;
       align-items: center;
       justify-content: center;
       overflow: auto;
     }
-    #skills .highlight, #projects .highlight, #about .highlight, #contact .highlight{
+    #skills .highlight, #projects .highlight, #about .highlight, #certifications .highlight, #contact .highlight{
       font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 700;
     }
-    #skills p, #projects #p1, #about #p1, #contact #p2 {
+    #skills p, #projects #p1, #about #p1, #certifications #p1, #contact #p2 {
       text-align: center;
       padding: 2rem;
       font-size: 1rem;
@@ -150,11 +150,11 @@
     }
     .container{
         width:100%; 
-        max-width:1200px; 
+        max-width:1300px; 
         margin:0 auto; 
         padding:0 2px;
     }
-    .hero{
+    .hero {
       width: 100%;
     }
     header{
@@ -241,12 +241,11 @@
     }
     .tag{
       width: fit-content;
-      margin: 0.25rem 0;
+      margin: auto;
       text-align: center;
       background:linear-gradient(135deg, var(--accent), var(--accent-2));
       color:#0b0f14;
       border: none;
-      transition: transform 0.3s;
       padding:15px 10px; 
       border-radius:999px; 
       font-size: 18px;
@@ -462,11 +461,15 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding: 0%;
+      padding: 1%;
       width: 100%;
       gap: 1rem;
       margin: auto;
       justify-content: center;
+    }
+    .muted2>div{
+      color: var(--muted);
+      height: 90%;
     }
     input, textarea{
       width:100%; 
@@ -584,8 +587,12 @@
       .container{
         width: 95%;
       }
+      nav{
+        display: none;
+      }
       .hero{
-        padding: 1rem;
+        padding-top: 3rem;
+        line-height: 1.7;
       }
       #contact {
         width: 95%;
@@ -609,7 +616,6 @@
       }
       #contact .card1{
         width: 95%;
-        margin-top: 2rem;
         height: 90%;
       }
       .condetail{
@@ -618,12 +624,13 @@
       .condetail>div{
         width: 100%;
       }
-      
+      .col-12.card.fade{
+        width: 100%;
+      }
       .muted2{
         display: flex;
         flex-direction: column;
         margin: auto;
-        height: max-content;
       }
       .footer1{
         display: flex;
@@ -640,6 +647,9 @@
         display: flex;
         flex-direction: row;
         gap: 2rem;
+      }
+      blockquote{
+        line-height: 0.8;
       }
     }
 
@@ -807,6 +817,7 @@
       margin-top: 2rem;
       line-height: 1.6;
       white-space: pre-wrap;
+      word-break: break-word;
     }
 
 
@@ -829,9 +840,49 @@
       height: 180px;
       border-radius: 50%;
       object-fit: cover;
+      margin: auto;
       border: 2px solid var(--accent);
-      box-shadow: 0 0 30px var(--accent);
+      animation: glowPulse 3s infinite alternate;
     }
+    @keyframes glowPulse {
+      from { box-shadow: 0 0 10px var(--accent); }
+      to { box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent-2); }
+    }
+
+    .hero-title {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 5s infinite linear;
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 5rem);
+      margin: 0;
+    }
+    .hero-desc {
+      max-width: 600px;
+      margin: 1rem auto;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      text-align: center;
+      color: var(--muted);
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+    .fade-in { animation: fadeIn 2s ease forwards; }
+    .slide-up { animation: slideUp 2s ease forwards; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    .rotating-text {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+
+
 
     /* CTA buttons */
     .cta{
@@ -870,6 +921,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -878,41 +930,51 @@
   </header>
 
 <section class="hero">
-  <div>
-    <div class="container1">
-    <div style="display: inline-flex; flex-direction: column; align-items: center; justify-content: center; margin: 0%;">
-  <!-- Portrait -->
-  <img class="portrait" 
-      src="https://avatars.githubusercontent.com/u/201357751?s=400&u=a97cd351d841dfd0fca99ffe961fbf42d4531130&v=4" 
-      alt="Shubham Kadam - Data Analyst & Developer"
-    />
-  <h1 style="color: var(--header-text); text-align: center; font-size: clamp(2rem, 4vw, 5rem); margin: 0%;">
-    Shubham Kadam
-  </h1>
-  <p class="tag">
-    <strong>Data Analyst & Developer</strong>
-  </p>
-  <h2 style="font-size: clamp(1.2rem, 3vw, 1.5rem); text-align: center; margin: 0.25rem 0;">Turning raw data into <span id="rotating"></span></h2>
-  <p style="margin: 0.3rem auto 1rem; line-height: 1.4; text-align: center;">
-      Blending analytics and development expertise to build dashboards, streamline pipelines, and craft Java‑powered solutions that turn data into decisive stories.
-  </p>
-  <div class="cta">
-    <a href="#projects" class="btn primary"><i class="fa-solid fa-diagram-project"></i>View Projects</a>
-    <a href="https://github.com/ShubhamK-0904/" class="btn"><i class="fa-brands fa-github" style="font-size: 20px;"></i>GitHub Profile</a>
-    <a href="documents/RESUME.pdf" class="btn"><i class="fa-solid fa-file-lines"></i>Open Resume</a>
-    <a href="#contact" class="btn"><i class="fa-solid fa-address-card"></i>Contact Me</a>
-  </div>
-</div>
-    <div class="code-block">
-      <div class="file-tab">Developer.java</div>
+  <div class="container1">
+    <div class="hero-content">
+      <!-- Portrait with animated glow -->
+      <img class="portrait"
+        src="https://avatars.githubusercontent.com/u/201357751?s=400&u=a97cd351d841dfd0fca99ffe961fbf42d4531130&v=4"
+        alt="Shubham Kadam - Data Analyst & Developer"
+      />
 
+      <!-- Animated gradient name -->
+      <h1 class="hero-title">Shubham Kadam</h1>
+
+      <!-- Tagline with fade-in -->
+      <p class="tag fade-in">
+        <strong>Data Analyst & Developer</strong>
+      </p>
+
+      <!-- Rotating text effect -->
+      <h2 class="rotating-text">
+        Turning raw data into <span id="rotating"></span>
+      </h2>
+
+      <!-- Description with slide-up animation -->
+      <p class="hero-desc slide-up">
+        Blending analytics and development expertise to build dashboards, streamline pipelines, and craft Java‑powered solutions that turn data into decisive stories.
+      </p>
+
+      <!-- Call-to-action buttons with hover effects -->
+      <div class="cta">
+        <a href="#projects" class="btn primary"><i class="fa-solid fa-diagram-project"></i>View Projects</a>
+        
+        <a href="documents/RESUME.pdf" class="btn"><i class="fa-solid fa-file-lines"></i>Open Resume</a>
+        <a href="#contact" class="btn"><i class="fa-solid fa-address-card"></i>Contact Me</a>
+      </div>
+    </div>
+
+    <!-- Animated code block -->
+    <div class="code-block fade-in">
+      <div class="file-tab">Developer.java</div>
       <pre>
 <span class="comment">/**</span>
 <span class="comment"> * @author</span> <span class="annotation">Shubham Kadam</span>
 <span class="comment"> * @role</span> <span class="annotation">Data Analyst & Developer</span>
 <span class="comment"> */</span>
 
-<span class="keyword">public</span> <span style="color: var(--muted);">class</span> <span class="annotation">Data Analyst</span> <span class="classname">extends</span> <span class="annotation">Developer</span> <span class="bracket">{</span>
+<span class="keyword">public</span> <span class="classname">DataAnalyst</span> <span class="keyword">extends</span> <span class="annotation">Developer</span> <span class="bracket">{</span>
 
     <span class="comment">// Building scalable systems & turning data into insights</span>
 
@@ -928,10 +990,8 @@
         <span class="type">System</span>.out.<span class="method">println</span>(<span class="string">"Transforming data into decisive stories!"</span>);
     <span class="bracket">}</span>
 <span class="bracket">}</span>
-<span class="cursor"></span>
-      </pre>
+<span class="cursor"></span></pre>
     </div>
-  </div>
   </div>
 </section>
 
@@ -1314,30 +1374,112 @@
     </div>
   </section>
   <section id="certifications">
+<br>
+<p id="p1">
+  <span style="color: var(--accent);">CERTIFICATIONS & ACHIEVEMENTS</span><br>
+  <span class="highlight">Milestones & Recognitions</span><br>
+Highlights of certifications and achievements, showcasing growth, learning, and impactful participation.</p>
     <div class="container">
       <div class="grid">
-        <div class="col-6 card fade">
-          <h2 style="display: flex; flex-direction: row; gap: 10px; align-items: center;">
-            <div class="icon">
-              <i class="fas fa-medal"></i>
-            </div>
-            Certifications
-          </h2>
-          <ul class="muted">
-            <li class="circle">Data Science with Python - Internshala</li>
-            <li class="circle">Software Development BootCamp - Floydee Foundation</li>
-          </ul>
+        <div class="col-6">
+          <div class="code-block fade-in">
+  <div class="file-tab">Certifications.sql</div>
+  <pre>
+<span class="comment">-- Certifications earned</span>
+
+<span class="keyword">CREATE TABLE</span> <span class="classname">Certifications</span> <span class="bracket">(</span>
+    <span class="type">id</span> <span class="keyword">INT</span> <span class="keyword">PRIMARY KEY</span>,
+    <span class="type">title</span> <span class="keyword">VARCHAR</span>(100),
+    <span class="type">provider</span> <span class="keyword">VARCHAR</span>(100)
+<span class="bracket">);</span>
+
+<span class="comment">-- Inserting the Records</span>
+
+<span class="keyword">INSERT INTO</span> <span class="classname">Certifications</span> <span class="keyword">(id, title, provider)</span> <span class="keyword">VALUES</span>
+    <span class="bracket">(</span><span class="number">1</span>, <span class="string">'Data Science with Python'</span>, <span class="string">'Internshala'</span><span class="bracket">)</span>,
+    <span class="bracket">(</span><span class="number">2</span>, <span class="string">'Software Development BootCamp'</span>, <span class="string">'Floydee Foundation'</span><span class="bracket">)</span>,
+    <span class="bracket">(</span><span class="number">3</span>, <span class="string">'Introduction to Generative AI Studio'</span>, <span class="string">'SimpliLearn'</span><span class="bracket">)</span>
+<span class="keyword">;</span>
+
+<span class="comment">-- Query all certifications</span>
+
+<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="classname">Certifications</span>;
+<span class="cursor"></span></pre>
+<table style="width:100%; border-collapse: collapse; margin-top: 1rem;">
+    <thead>
+      <tr style="background: var(--accent); color: #fff;">
+        <th style="padding: 8px; border: 1px solid #ccc;">ID</th>
+        <th style="padding: 8px; border: 1px solid #ccc;">Title</th>
+        <th style="padding: 8px; border: 1px solid #ccc;">Provider</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ccc;">1</td>
+        <td style="padding: 8px; border: 1px solid #ccc;">Data Science with Python</td>
+        <td style="padding: 8px; border: 1px solid #ccc;">Internshala</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ccc;">2</td>
+        <td style="padding: 8px; border: 1px solid #ccc;">Software Development BootCamp</td>
+        <td style="padding: 8px; border: 1px solid #ccc;">Floydee Foundation</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ccc;">3</td>
+        <td style="padding: 8px; border: 1px solid #ccc;">Introduction to Generative AI Studio</td>
+        <td style="padding: 8px; border: 1px solid #ccc;">SimpliLearn</td>
+      </tr>
+    </tbody>
+</table>
+</div>
         </div>
-        <div class="col-6 card fade">
-          <h2 style="display: flex; flex-direction: row; gap: 10px; align-items: center;">
-            <div class="icon">
-              <i class="fas fa-award"></i>
-            </div>
-            Achievements
-          </h2>
-          <ul class="muted">
-            <li class="circle">Cleared the Tata Crucible Quiz Prelim Round-1 (Online Mode)</li>
-          </ul>
+        <div class="col-6">
+          <div class="code-block fade-in">
+  <div class="file-tab">Achievements.py</div>
+  <pre>
+<span class="comment"># Achievements stored in a Spark DataFrame</span>
+
+<span class="keyword">from</span> <span class="type">pyspark.sql</span> <span class="keyword">import</span> SparkSession
+
+spark = SparkSession.builder.appName(<span class="string">"PortfolioAchievements"</span>).getOrCreate()
+
+data = [
+    (<span class="number">1</span>, <span class="string">"Cleared the Tata Crucible Quiz Prelim Round-1 (Online Mode)"</span>),
+    (<span class="number">2</span>, <span class="string">"Worked with Web development NGO for free as a volunteer"</span>),
+    (<span class="number">3</span>, <span class="string">"Participated in the SQL query firing workshop"</span>)
+]
+
+columns = [<span class="string">"id"</span>, <span class="string">"achievement"</span>]
+
+achievements_df = spark.createDataFrame(data, columns)
+
+<span class="comment"># Output</span>
+
+achievements_df.show(truncate=<span class="boolean">False</span>)
+<span class="cursor"></span></pre>
+<table style="border-collapse: collapse; font-family: monospace; margin-top: 1rem;">
+    <thead>
+      <tr style="background: var(--accent); color: #fff;">
+        <th style="border: 1px solid #ccc; padding: 8px;">id</th>
+        <th style="border: 1px solid #ccc; padding: 8px;">achievement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;">1</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Cleared the Tata Crucible Quiz Prelim Round-1 (Online Mode)</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;">2</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Worked with Web development NGO for free as a volunteer</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;">3</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Participated in the SQL query firing workshop</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
         </div>
     </div>
     </div>
@@ -1367,13 +1509,15 @@
               </div>
             </a>
           </div>  
-          <div class="col-8 card fade">
-            <p class="muted">
-              <span class="comment">// Current status</span><br>
-              <span class="keyword">private</span> <span class="type">boolean</span> isAvailable = <span class="boolean">true</span>;<br>
-              <span class="keyword">private</span> <span class="type">String</span> preferredWork = <span class="string">"Remote / Hybrid"</span>;
-            </p>          
+          <div class="code-block fade-in">
+              <div class="file-tab">Status.java</div>
+              <pre>
+<span class="comment">// Current status</span>
+<span class="keyword">private</span> <span class="type">boolean</span> isAvailable = <span class="boolean">true</span>;
+<span class="keyword">private</span> <span class="type">String</span> preferredWork = <span class="string">"Remote / Hybrid"</span>;
+<span class="cursor"></span></pre>
           </div>
+
         </div>
         <div class="card1">
           <form id="contactForm">
