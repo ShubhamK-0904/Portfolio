@@ -76,14 +76,10 @@
       padding: 0.5rem 1rem;
       border-radius: 10px 10px 0 0;
     }
-
-    /* Title text */
     .response-header p {
       margin: 0;
       font-weight: 600;
     }
-
-    /* Copy button */
     .copy-btn {
       background: none;
       border: none;
@@ -94,20 +90,12 @@
       font-size: 14px;
       transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
     }
-
-    .copy-btn:hover {
-      background-color: var(--accent-light);
-    }
-
     .copy-btn:active {
       transform: scale(0.97);
     }
-
     .copy-btn i {
       margin-right: 4px;
     }
-
-
     section{
       width: 100%;
       display: block;
@@ -545,7 +533,6 @@
       --border: #dce2eb; 
       --shadow: 0 6px 20px rgba(0, 0, 0, 0.151); 
     }
-
     .light .keyword { color: var(--accent); }          
     .light .type { color: #007acc; }                   
     .light .classname { color: var(--accent); }       
@@ -555,7 +542,6 @@
     .light .comment { color: #5a6475; font-style: italic; } 
     .light .annotation { color: #e36209; }            
     .light .bracket { color: #0a0e14; }  
-
     #contact {
       display: flex;
       flex-direction: column;       
@@ -666,7 +652,6 @@
         line-height: 0.8;
       }
     }
-
     #chatbot-bubble {
       position: fixed;
       bottom: 20px;
@@ -690,7 +675,6 @@
     #chatbot-bubble:hover {
       transform: scale(1.1);
     }
-
     #chatbot {
       position: fixed;
       bottom: 80px;
@@ -704,11 +688,9 @@
       display: none;
       z-index: 1000;
     }
-
     #chat-window {
       padding: 10px;
     }
-
     #messages {
       height: 250px;
       overflow-y: auto;
@@ -717,11 +699,9 @@
       font-family: Arial, sans-serif;
       font-size: 14px;
     }
-
     #messages .message {
       margin: 5px 0;
     }
-
     #messages .user .text {
       background: var(--accent-light);
       color: var(--header-text);
@@ -731,7 +711,6 @@
       border-radius: 5px;
       display: inline-block;
     }
-
     #messages .bot .text {
       background: none;
       padding: 5px 10px;
@@ -739,7 +718,6 @@
       color: var(--header-text);
       display: inline-block;
     }
-
     #user-input {
       width: 70%;
       padding: 5px;
@@ -748,7 +726,6 @@
       border-radius: 5px;
       font-size: 14px;
     }
-
     #send-btn {
       width: 28%;
       padding: 5px;
@@ -759,7 +736,6 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    
     #chatbot-header {
       display: flex;
       flex-direction: column;       
@@ -773,7 +749,6 @@
       width: 100%;
       gap: 0;                       
     }
-
     .chatbot-logo{
       background-color: var(--accent);
       width: 45px;
@@ -787,11 +762,9 @@
       align-items: center;
       justify-content: center;
     }
-    
     #chatbot-header h4{
       font-size: 1.2rem;
     }
-
     .container1 {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -814,7 +787,6 @@
       position: relative;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
-
     .file-tab {
       position: absolute;
       top: 0;
@@ -826,16 +798,12 @@
       font-size: 0.8rem;
       color: var(--muted);
     }
-
     pre {
       margin-top: 2rem;
       line-height: 1.6;
       white-space: pre-wrap;
       word-break: break-word;
     }
-
-
-    /* Cursor */
     .cursor {
       display: inline-block;
       width: 8px;
@@ -848,7 +816,6 @@
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
     }
-
     .portrait {
       width: 180px;
       height: 180px;
@@ -862,7 +829,6 @@
       from { box-shadow: 0 0 10px var(--accent); }
       to { box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent-2); }
     }
-
     .hero-title {
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
       background-size: 200% auto;
@@ -881,24 +847,42 @@
       color: var(--muted);
     }
     @keyframes gradientShift {
-      0% { background-position: 0% center; }
-      100% { background-position: 200% center; }
+      0% { 
+        background-position: 0% center; 
+      }
+      100% { 
+        background-position: 200% center; 
+      }
     }
-    .fade-in { animation: fadeIn 2s ease forwards; }
-    .slide-up { animation: slideUp 2s ease forwards; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
+    .fade-in { 
+      animation: fadeIn 2s ease forwards; 
+    }
+    .slide-up { 
+      animation: slideUp 2s ease forwards; 
+    }
+    @keyframes fadeIn { 
+      from { 
+        opacity: 0; 
+      } 
+      to { 
+        opacity: 1; 
+      } 
+    }
+    @keyframes slideUp { 
+      from { 
+        transform: translateY(20px); 
+        opacity: 0; 
+      } 
+      to { 
+        transform: translateY(0); 
+        opacity: 1; 
+      } 
+    }
     .rotating-text {
       font-size: clamp(1.2rem, 2vw, 1.5rem);
       text-align: center;
       margin: 1rem 0;
     }
-
-
-
-
-    /* CTA buttons */
     .cta{
       display:flex; 
       gap:12px; 
@@ -950,40 +934,26 @@
 <section class="hero">
   <div class="container1">
     <div class="hero-content">
-      <!-- Portrait with animated glow -->
       <img class="portrait"
         src="https://avatars.githubusercontent.com/u/201357751?s=400&u=a97cd351d841dfd0fca99ffe961fbf42d4531130&v=4"
         alt="Shubham Kadam - Data Analyst & Developer"
       />
-
-      <!-- Animated gradient name -->
       <h1 class="hero-title">Shubham Kadam</h1>
-
-      <!-- Tagline with fade-in -->
       <p class="tag fade-in">
         <strong>Data Analyst & Developer</strong>
       </p>
-
-      <!-- Rotating text effect -->
       <h2 class="rotating-text">
         Turning raw data into <span id="rotating"></span>
       </h2>
-
-      <!-- Description with slide-up animation -->
       <p class="hero-desc slide-up">
         Blending analytics and development expertise to build dashboards, streamline pipelines, and craft Java‑powered solutions that turn data into decisive stories.
       </p>
-
-      <!-- Call-to-action buttons with hover effects -->
       <div class="cta">
         <a href="#projects" class="btn primary"><i class="fa-solid fa-diagram-project"></i>View Projects</a>
-        
         <a href="documents/RESUME.pdf" class="btn"><i class="fa-solid fa-file-lines"></i>Open Resume</a>
         <a href="#contact" class="btn"><i class="fa-solid fa-address-card"></i>Contact Me</a>
       </div>
     </div>
-
-    <!-- Animated code block -->
     <div class="code-block fade-in">
       <div class="file-tab">Developer.java</div>
       <pre>
@@ -1017,8 +987,6 @@
     <br><p id="p1"><span style="color: var(--accent);">ABOUT ME</span><br><span class="highlight">Data Analyst & Developer</span></p>
     <div>
       <div class="container grid">
-
-        <!-- About Me -->
         <div class="col-6 card fade">
           <h2 style="color: var(--accent);">Who I Am</h2>
             <p class="muted" style="padding: 0.5rem; font-size: 1rem; line-height: 1.8;">
@@ -1028,8 +996,6 @@
               What sets me apart is the combination: <span style="color: var(--accent); font-weight: 600;">analytical precision</span> fused with <span style="color: var(--accent); font-weight: 600;">engineering discipline</span>, resulting in solutions that are intelligent, scalable, and built to last.
             </p>
         </div>
-
-        <!-- Professional Highlights -->
         <div class="col-6 card fade">
           <h2 style="color: var(--accent);">Professional Highlights</h2>
           <div class="muted">
@@ -1067,7 +1033,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-6 card fade">
           <h2 style="display: flex; flex-direction: row; gap: 10px; align-items: center;">
             <div class="icon">
@@ -1081,7 +1046,6 @@
             <li class="muted">Relevant coursework: Data Structures, DBMS, Statistics, Machine Learning, Web Development</li>
           </ul>
         </div>
-
         <div class="col-6 card fade">
           <h2 style="display: flex; flex-direction: row; gap: 10px; align-items: center;">
             <div class="icon">
@@ -1112,7 +1076,6 @@
           <span class="chip">TypeScript</span>
         </div>
       </div>
-
       <div class="col-4 card fade">
         <h3><i class="fas fa-chart-line"></i> Analytics & BI Tools</h3>
         <div class="chips">
@@ -1122,7 +1085,6 @@
           <span class="chip">Jupyter Notebook</span>
         </div>
       </div>
-
       <div class="col-4 card fade">
         <h3><i class="fas fa-database"></i> Databases</h3>
         <div class="chips">
@@ -1132,7 +1094,6 @@
           <span class="chip">MySQL</span>
         </div>
       </div>
-
       <div class="col-4 card fade">
         <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
         <div class="chips">
@@ -1142,7 +1103,6 @@
           <span class="chip">Bootstrap</span>
         </div>
       </div>
-
       <div class="col-4 card fade">
         <h3><i class="fas fa-project-diagram"></i> Java Technologies</h3>
         <div class="chips">
@@ -1152,7 +1112,6 @@
           <span class="chip">JFC</span>
         </div>
       </div>
-
       <div class="col-4 card fade">
         <h3><i class="fas fa-robot"></i> Machine Learning</h3>
         <div class="chips">
@@ -1163,7 +1122,6 @@
           <span class="chip">ML Algorithms</span>
         </div>
       </div>
-
       <div class="col-6 card fade">
         <h3><i class="fas fa-layer-group"></i> Frameworks & Libraries</h3>
         <div class="chips">
@@ -1174,7 +1132,6 @@
           <span class="chip">PySpark</span>
         </div>
       </div>
-
       <div class="col-6 card fade">
         <h3><i class="fas fa-cube"></i> Core Tools & Collaboration</h3>
         <div class="chips">
@@ -1572,10 +1529,7 @@ print(html_output)
       </div>
     </div>
   </section>
-<!-- Chat Bubble -->
   <div id="chatbot-bubble"><i class="fas fa-robot"></i></div>
-
-  <!-- Chat Window -->
   <div id="chatbot">
     <div id="chat-window">
       <div id="messages">
@@ -1589,7 +1543,6 @@ print(html_output)
     </div>
     <p style="font-size: 12px; text-align: center;">Smart insights, seamless conversations.</p>
   </div>
-
 
   <footer>
     <div class="footer1">
@@ -1641,7 +1594,6 @@ print(html_output)
     form.addEventListener('submit', (e)=>{
       e.preventDefault();
       const data = Object.fromEntries(new FormData(form).entries());
-      // Simulate async submit
       status.textContent = 'Sending...';
       setTimeout(()=>{
         status.textContent = `Thanks, ${data.name}! Your message was received.`;
@@ -1734,8 +1686,6 @@ const skillChart = new Chart(ctx, {
     }
   }
 });
-
-// helper to refresh chart colors when theme changes
 function updateChartColors() {
   const accentColorlight = getComputedStyle(document.documentElement)
                             .getPropertyValue('--accent-light')
@@ -1750,13 +1700,10 @@ function updateChartColors() {
                         .getPropertyValue('--muted')
                         .trim();
 
-
-  // update dataset outline + points
   skillChart.data.datasets[0].backgroundColor = accentColorlight;
   skillChart.data.datasets[0].borderColor = accentColor;
   skillChart.data.datasets[0].pointBackgroundColor = accentColor;
 
-  // update title + labels
   skillChart.options.plugins.title.color = headerColor;
   skillChart.options.scales.r.pointLabels.color = headerColor;
 
@@ -1766,12 +1713,10 @@ function updateChartColors() {
   skillChart.update();
 }
 
-// toggle theme and refresh chart colors
 document.querySelector("#themeToggle").addEventListener("click", () => {
   document.documentElement.toggleAttribute("data-theme", "dark");
   updateChartColors();
 });
-
 
 let botData = {};
 fetch('chatbot.json')
@@ -1849,7 +1794,7 @@ function respondToUser(input) {
   input = normalize(input);
 
   if (input === "help") {
-    const helpInfo = botData.help; // get help object from JSON
+    const helpInfo = botData.help; 
     const options = [helpInfo.overview, helpInfo.capabilities];
     const helpText = options[Math.floor(Math.random() * options.length)];
     setTimeout(() => addMessage("bot", helpText), 600);
@@ -1895,7 +1840,7 @@ function respondToUser(input) {
       return;
     }
   }
-  setTimeout(() => addMessage("bot", "Invalid input detected. Type 'help' for more information."), 600);
+  setTimeout(() => addMessage("bot", "Sorry, something went wrong with your input. Please type 'help' if you need guidance."), 600);
 }
 
 document.addEventListener("click", (event) => {
@@ -1930,7 +1875,6 @@ const data = {
   bubbleFound: !!bubble1,
   chatbotCurrentDisplay: chatbot1 ? chatbot1.style.display : 'N/A'
 };
-
 </script>
 </body>
 </html>
